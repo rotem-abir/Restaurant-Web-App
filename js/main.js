@@ -75,31 +75,28 @@ initMap = () => {
   self.newMap = L.map('map', {
         center: [40.722216, -73.987501],
         zoom: 12,
-        scrollWheelZoom: false
+        scrollWheelZoom: true
       });
-  L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.jpg70?access_token={mapboxToken}', {
+
+  const url1 =
+  'https://api.mapbox.com/styles/v1/mapbox/emerald-v8/tiles/{z}/{x}/{y}?access_token=pk.eyJ1Ijoicm90ZW1hYiIsImEiOiJjanZpM3l0bzQwMXhhNDZrMzNxOGxsMGpoIn0.PADsw5d3X0hHEaYRu0STcg'
+  const url_not_working =
+  'https://api.mapbox.com/styles/v1/rotemab/cjvjd7ey80dqk1cjzu9q6btyb?access_token=pk.eyJ1Ijoicm90ZW1hYiIsImEiOiJjanZpM3l0bzQwMXhhNDZrMzNxOGxsMGpoIn0.PADsw5d3X0hHEaYRu0STcg'
+  const url3 =
+  
+  'https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.jpg70?access_token={mapboxToken}';
+  L.tileLayer(url1, {
     mapboxToken: 'pk.eyJ1Ijoicm90ZW1hYiIsImEiOiJjanZpM3l0bzQwMXhhNDZrMzNxOGxsMGpoIn0.PADsw5d3X0hHEaYRu0STcg',
     maxZoom: 18,
     attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
       '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
       'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-    id: 'mapbox.streets'
+    id: 'mapbox.streets',
+    style: 'mapbox://styles/rotemab/cjvjd7ey80dqk1cjzu9q6btyb'
   }).addTo(newMap);
 
   updateRestaurants();
 }
-/* window.initMap = () => {
-  let loc = {
-    lat: 40.722216,
-    lng: -73.987501
-  };
-  self.map = new google.maps.Map(document.getElementById('map'), {
-    zoom: 12,
-    center: loc,
-    scrollwheel: false
-  });
-  updateRestaurants();
-} */
 
 /**
  * Update page and map for current restaurants.
