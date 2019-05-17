@@ -1,0 +1,115 @@
+/* 
+ Focus Management
+*/
+button:focus,
+a:focus,
+img:focus,
+select:focus {
+    outline: none;
+}
+
+body.keyboard-user button:focus,
+body.keyboard-user a:focus,
+body.keyboard-user select:focus {
+    outline: 2px dashed #f60;
+    box-shadow: 0 0 10px #f60;
+    color: white;
+}
+body.keyboard-user img:focus {
+    outline: 3px solid #f60;
+}
+body.keyboard-user form select:focus,
+body.keyboard-user #map a:focus {
+    color: black;
+}
+
+/*
+ Skip buttons for keyboard users
+*/
+#skip-link {
+    position: absolute;
+    top: -50px;
+    left: 5px;
+    padding: 10px;
+    z-index: 1000;
+    text-transform: uppercase;
+}
+#skip-link:focus {
+    top: 5px;
+    left: 5px;
+    background: #16b;
+    color: white;
+}
+.skip-up {
+    position: relative;
+    opacity: 0;
+}
+.skip-up:focus {
+    opacity: 1;
+}
+
+/*
+*   Responsive Layout
+*/
+#restaurants-list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+/*
+* Media Queries
+*/
+@media screen and (max-width: 359px) {
+    nav {
+        height: 50px;
+    }
+    nav h1 a {
+        letter-spacing: 4px;
+        line-height: 50px;
+    }
+    #map {
+        height: 250px;
+    }
+    #map-container {
+        font-size: 7px;
+    }
+}
+
+@media screen and (min-width: 360px) and (max-width: 469px) {
+    nav {
+        height: 60px;
+    }
+    nav h1 a {
+        letter-spacing: 6px;
+        line-height: 60px;
+    }
+    #map {
+        height: 400px;
+    }
+}
+
+@media screen and (min-width: 360px) and (max-width: 900px) {
+    #restaurants-list li {
+        margin: 0 10px 35px; 
+        flex: 1 0 80%;
+    }
+}
+
+@media screen and (min-width: 900px) {
+    #restaurants-list {
+        justify-content: space-between;
+    }
+    #restaurants-list li {
+        flex: 1 0 30%;
+    }
+}
+
+@media screen and (min-width: 1180px) {
+    ul#restaurants-list {
+        max-width: 1180px;
+        margin-right: auto;
+        margin-left: auto;
+    }
+}
+
