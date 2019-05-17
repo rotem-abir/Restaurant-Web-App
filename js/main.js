@@ -75,7 +75,7 @@ initMap = () => {
   self.newMap = L.map('map', {
         center: [40.722216, -73.987501],
         zoom: 12,
-        scrollWheelZoom: true
+        scrollWheelZoom: false
       });
 
   const url1 =
@@ -88,9 +88,9 @@ initMap = () => {
   L.tileLayer(url1, {
     mapboxToken: 'pk.eyJ1Ijoicm90ZW1hYiIsImEiOiJjanZpM3l0bzQwMXhhNDZrMzNxOGxsMGpoIn0.PADsw5d3X0hHEaYRu0STcg',
     maxZoom: 18,
-    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
+    attribution: '<span style="font-size:0.5rem;">Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
       '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
-      'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+      'Imagery © <a href="https://www.mapbox.com/">Mapbox</a><span>',
     id: 'mapbox.streets',
     style: 'mapbox://styles/rotemab/cjvjd7ey80dqk1cjzu9q6btyb'
   }).addTo(newMap);
@@ -147,6 +147,18 @@ fillRestaurantsHTML = (restaurants = self.restaurants) => {
     ul.append(createRestaurantHTML(restaurant));
   });
   addMarkersToMap();
+
+  if ((restaurants.length%2 !== 0) && (screen.width >= 900)) {
+    fixFlexboxLayout();
+  }
+}
+
+// helper function for the flexbox layout
+function fixFlexboxLayout() {
+  const li = document.createElement('li');
+  li.setAttribute('style', 'opacity:0;');
+  const ul = document.getElementById('restaurants-list');
+  ul.append(li)
 }
 
 /**

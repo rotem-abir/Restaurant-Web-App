@@ -42,6 +42,7 @@ body.keyboard-user #map a:focus {
 }
 .skip-up {
     position: relative;
+    top:10px;
     opacity: 0;
 }
 .skip-up:focus {
@@ -57,6 +58,8 @@ body.keyboard-user #map a:focus {
     flex-wrap: wrap;
     justify-content: space-around;
 }
+#
+
 /*
 * Media Queries
 */
@@ -112,4 +115,3 @@ body.keyboard-user #map a:focus {
         margin-left: auto;
     }
 }
-
