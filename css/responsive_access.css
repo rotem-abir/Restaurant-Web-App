@@ -58,7 +58,6 @@ body.keyboard-user #map a:focus {
     flex-wrap: wrap;
     justify-content: space-around;
 }
-#
 
 /*
 * Media Queries
@@ -72,10 +71,14 @@ body.keyboard-user #map a:focus {
         line-height: 50px;
     }
     #map {
-        height: 250px;
+        height: 280px;
     }
     #map-container {
         font-size: 7px;
+    }
+    .filter-options select {
+        width: 90%;
+        margin: 10px;
     }
 }
 
@@ -88,7 +91,11 @@ body.keyboard-user #map a:focus {
         line-height: 60px;
     }
     #map {
-        height: 400px;
+        height: 350px;
+    }
+    .filter-options select {
+        width: 90%;
+        margin: 14px;
     }
 }
 
