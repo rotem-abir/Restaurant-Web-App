@@ -23,6 +23,7 @@ body.keyboard-user #map a:focus {
     color: black;
 }
 
+
 /*
  Skip buttons for keyboard users
 */
@@ -49,8 +50,9 @@ body.keyboard-user #map a:focus {
     opacity: 1;
 }
 
+
 /*
-*   Responsive Layout
+*   Responsive Layout for main page
 */
 #restaurants-list {
     display: flex;
@@ -62,7 +64,7 @@ body.keyboard-user #map a:focus {
 /*
 * Media Queries
 */
-@media screen and (max-width: 359px) {
+@media screen and (max-width: 400px) {
     nav {
         height: 50px;
     }
@@ -80,16 +82,12 @@ body.keyboard-user #map a:focus {
         width: 90%;
         margin: 10px;
     }
+    #restaurants-list li {
+        padding: 0 30px 10px; 
+    }
 }
 
-@media screen and (min-width: 360px) and (max-width: 469px) {
-    nav {
-        height: 60px;
-    }
-    nav h1 a {
-        letter-spacing: 6px;
-        line-height: 60px;
-    }
+@media screen and (min-width: 401px) and (max-width: 470px) {
     #map {
         height: 350px;
     }
@@ -99,14 +97,14 @@ body.keyboard-user #map a:focus {
     }
 }
 
-@media screen and (min-width: 360px) and (max-width: 900px) {
+@media screen and (min-width: 401px) and (max-width: 900px) {
     #restaurants-list li {
         margin: 0 10px 35px; 
         flex: 1 0 80%;
     }
 }
 
-@media screen and (min-width: 900px) {
+@media screen and (min-width: 901px) {
     #restaurants-list {
         justify-content: space-between;
     }
@@ -120,5 +118,78 @@ body.keyboard-user #map a:focus {
         max-width: 1180px;
         margin-right: auto;
         margin-left: auto;
+    }
+}
+
+
+/*
+*   Responsive Layout for for restaurant page
+*/
+@media screen and (max-width: 1000px) {
+    #breadcrumb {
+        width: calc(100% - 80px);
+    }
+    .inside #maincontent {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        padding-top: 125px;
+    }
+    .inside #footer {
+        position: static;
+    }
+}
+
+/*
+* Media Queries for restaurant page
+*/
+@media screen and (max-width: 400px) {
+    .inside #breadcrumb {
+        padding: 10px;
+        width: calc(100% - 20px);
+    }
+    .inside main#maincontent {
+        padding-top: 95px;
+    }
+    .inside h1#restaurant-name {
+        font-size: 12pt;
+    }
+    .inside #restaurant-container, .inside #reviews-container {
+        padding: 10px;
+        width: calc(100% - 10px);
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .inside #map-container {
+        position: static;
+        height: 280px;
+        width: 100%;
+    }
+    #restaurant-container, #reviews-container {
+        padding: 20px;
+        width: calc(100% - 20px);
+    }
+    .inside #restaurant-name {
+        font-size: 15pt;
+        font-weight: 600;
+    }
+    #copyright {
+        padding: 0 20px 0 20px;
+    }
+}
+
+@media screen and (min-width: 601px) and (max-width: 1000px) {
+    .inside #map-container {
+        position: static;
+        height: 400px;
+        width: 100%;
+    }
+    #restaurant-container {
+        padding: 20px;
+        width: 80%;
+    }
+    #reviews-container {
+        width: 80%;
     }
 }
