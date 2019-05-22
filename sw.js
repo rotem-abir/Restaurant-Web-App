@@ -64,8 +64,8 @@ self.addEventListener('fetch', function(event) {
 });
 
 self.addEventListener('message', function(msg) {
+    console.log(msg.data);
     if(msg.data.skip == 'yes') {
-        console.log(msg.data);
         self.skipWaiting();
     }
 });
