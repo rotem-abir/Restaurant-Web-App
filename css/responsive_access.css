@@ -23,7 +23,6 @@ body.keyboard-user #map a:focus {
     color: black;
 }
 
-
 /*
  Skip buttons for keyboard users
 */
@@ -50,7 +49,6 @@ body.keyboard-user #map a:focus {
     opacity: 1;
 }
 
-
 /*
 *   Responsive Layout for main page
 */
@@ -62,7 +60,7 @@ body.keyboard-user #map a:focus {
 }
 
 /*
-* Media Queries
+* Media Queries for main page
 */
 @media screen and (max-width: 400px) {
     nav {
@@ -120,7 +118,6 @@ body.keyboard-user #map a:focus {
         margin-left: auto;
     }
 }
-
 
 /*
 *   Responsive Layout for for restaurant page
