@@ -1,26 +1,26 @@
-const staticCache = 'cacheNr1';
+const staticCache = 'AppCacheNr1';
 
 const siteData = [
     '/',
-    '/index.html',
-    '/restaurant.html',
-    '/css/styles.css',
-    '/css/responsive_access.css',
-    '/data/restaurants.json',
-    '/img/1.jpg',
-    '/img/2.jpg',
-    '/img/3.jpg',
-    '/img/4.jpg',
-    '/img/5.jpg',
-    '/img/6.jpg',
-    '/img/7.jpg',
-    '/img/8.jpg',
-    '/img/9.jpg',
-    '/img/10.jpg',
-    '/js/dbhelper.js',
-    '/js/main.js',
-    '/js/restaurant_info.js',
-    '/js/sw_setup.js'
+    'index.html',
+    'restaurant.html',
+    'css/styles.css',
+    'css/responsive_access.css',
+    'data/restaurants.json',
+    'img/1.jpg',
+    'img/2.jpg',
+    'img/3.jpg',
+    'img/4.jpg',
+    'img/5.jpg',
+    'img/6.jpg',
+    'img/7.jpg',
+    'img/8.jpg',
+    'img/9.jpg',
+    'img/10.jpg',
+    'js/dbhelper.js',
+    'js/main.js',
+    'js/restaurant_info.js',
+    'js/sw_setup.js'
 ];
 
 self.addEventListener('install', function(event) {
@@ -29,6 +29,18 @@ self.addEventListener('install', function(event) {
             return cache.addAll(siteData) 
         }).catch(function(err) {
             console.log('cache saving problem :(' + err);
+        })
+    );
+});
+
+self.addEventListener('activate', function(event) {
+    event.waitUntil(
+        caches.keys().then(function(cachesNames) {
+            return Promise.all(
+                cachesNames.filter(function(cacheName) {
+                    return cacheName.startsWith('AppCacheNr') && cacheName !== staticCache;
+                }).map(noNeedCache => caches.delete(noNeedCache))
+            );
         })
     );
 });
@@ -49,4 +61,11 @@ self.addEventListener('fetch', function(event) {
             });
         })
     );
+});
+
+self.addEventListener('message', function(msg) {
+    if(msg.data.skip == 'yes') {
+        console.log(msg.data);
+        self.skipWaiting();
+    }
 });
