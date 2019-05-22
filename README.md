@@ -8,7 +8,13 @@ Static design that lacks accessibility converted into mobile-ready web applicati
 
 ## File System
 
-
+| Type       | Folder | Format         |
+| :--------- | :----- | :------------- |
+| HTML       | root   | index.html     |
+| CSS        | \css   | style.css      |
+| JavaScript | \js    | app.js         |
+| Pictures   | \img   | SymbolName.jpg |
+| Markdown   | root   | ReadMe..md    |
 
 ### Project Rubric
 
