@@ -148,7 +148,7 @@ body.keyboard-user #map a:focus {
     .inside main#maincontent {
         padding-top: 95px;
     }
-    .inside h1#restaurant-name {
+    .inside h2#restaurant-name {
         font-size: 12pt;
     }
     .inside #restaurant-container, .inside #reviews-container {
