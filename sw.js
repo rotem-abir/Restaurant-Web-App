@@ -49,19 +49,36 @@ self.addEventListener('fetch', function(event) {
     event.respondWith(
         caches.match(event.request).then(function(response) {
             // return response || fetch(event.request);
-            if (response) return response;
-
-            return fetch(event.request).then(function(response) {
-                if(response.status === 404) {
-                    return new Response (`<h1>Sorry. Page does not exist :(<h1>`, {
-                        headers: { 'Content-Type': 'text/html' }
-                    });
-                }
+            if (response) {
                 return response;
+            }
+
+            return fetch(event.request).then(
+                function(response) {
+                    if(response.status === 404) {
+                        return new Response (`<h1>Sorry. Page does not exist :0<h1>`, {
+                            headers: { 'Content-Type': 'text/html' }
+                        });
+                    }
+
+                    let responseCopy = response.clone();
+                    caches.open(staticCache).then(function(cache) {
+                        cache.put(event.request, responseCopy);
+                    });
+
+                    return response;
+                }
+            ).catch(function() {
+                return new Response (`<h1>Looks like you have no internet connection :(<h1>`, {
+                    headers: { 'Content-Type': 'text/html' }
+                });
             });
         })
     );
 });
+
+
+
 
 self.addEventListener('message', function(msg) {
     console.log(msg.data);
