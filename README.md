@@ -6,17 +6,22 @@
 
 Static design that lacks accessibility converted into mobile-ready web application, responsive on different sized displays and accessible for screen reader use. It includes a service worker which give seamless offline experience to the user.
 
-## Service Worker File System
+## Added to the file system
 
-| Type       | Folder | Format         | Role |
+| Type       | Folder | File name         | Role |
 | :--------- | :----- | :------------- | :--- |
 | JavaScript | root   | sw.js          | Service worker itself |
-| JavaScript | \js    | sw_setup.js    | Loading and registering |
+| JavaScript | \js    | sw_setup.js    | Loading and registering the SW |
+| CSS        | \css   | responsive_access.js    | Focus management, Skip buttons, Media queries |
 
+### My Contributions
 
-### Project Rubric
-
-Your project follows the [Restaurant Reviews project rubric](https://review.udacity.com/#!/rubrics/1090/view).
+- Service worker with auto-updates and cache service
+- Focus management through the app
+- Serving skip buttons when identifying keyboard users
+- Fully responsive for all screen sizes
+- Accessibility labels and semantics
+- Serving alt-text form database
 
 ## The server / How to run the app?
 
@@ -33,3 +38,9 @@ This repository uses [leafletjs](https://leafletjs.com/) with [Mapbox](https://w
 ### Note about ES6
 
 Most of the code in this project has been written to the ES6 JavaScript specification for compatibility with modern web browsers and future-proofing JavaScript code.
+
+### Project Rubric
+
+Your project follows the [Restaurant Reviews project rubric](https://review.udacity.com/#!/rubrics/1090/view).
+
+
